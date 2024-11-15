@@ -1,0 +1,80 @@
+<div mat-dialog-content>
+    <mat-card class="example-card" appearance="outlined">
+    <mat-card-header>
+        <mat-card-title>{{ selectedAlcaldia.id > 0 ? 'Editar Alcaldía' : 'Crear Alcaldía' }}</mat-card-title>
+    </mat-card-header>   
+    <mat-card-content>
+        <form (ngSubmit)="createOrUpdateAlcaldia()">
+            <div class="form-group">
+              <label for="nombre">Nombre:</label>
+              <input
+                type="text"
+                id="nombre"
+                [(ngModel)]="selectedAlcaldia.nombre"
+                name="nombre"
+                class="form-control"
+                required
+              />
+            </div>
+            <div class="form-group">
+                <label for="provinciaCodigo">Provincia:</label>
+                <mat-select
+                  id="provinciaCodigo"
+                  [(ngModel)]="selectedAlcaldia.provinciaCodigo"
+                  name="provinciaCodigo"
+                  (selectionChange)="loadMunicipios($event.value)"
+                  required
+                >
+                  <mat-option *ngFor="let provincia of provincias" [value]="provincia.codigo">
+                    {{ provincia.nombre }}
+                  </mat-option>
+                </mat-select>
+              </div>
+      
+              <div class="form-group">
+                <label for="municipioCodigo">Municipio:</label>
+                <mat-select
+                  id="municipioCodigo"
+                  [(ngModel)]="selectedAlcaldia.municipioCodigo"
+                  name="municipioCodigo"
+                  (selectionChange)="loadDistritos($event.value)"
+                  required
+                >
+                  <mat-option *ngFor="let municipio of municipios" [value]="municipio.codigo">
+                    {{ municipio.nombre }}
+                  </mat-option>
+                </mat-select>
+              </div>
+      
+              <div class="form-group">
+                <label for="distritoMunicipalCodigo">Distrito Municipal:</label>
+                <mat-select
+                  id="distritoMunicipalCodigo"
+                  [(ngModel)]="selectedAlcaldia.distritoMunicipalCodigo"
+                  name="distritoMunicipalCodigo"
+                  required
+                >
+                  <mat-option *ngFor="let distrito of distritos" [value]="distrito.codigo">
+                    {{ distrito.nombre }}
+                  </mat-option>
+                </mat-select>
+              </div>
+            <div class="form-group">
+              <label for="activo">Activo:</label>
+              <input
+                type="checkbox"
+                id="activo"
+                [(ngModel)]="selectedAlcaldia.activo"
+                name="activo"
+                class="form-check-input"
+              />
+            </div>
+        
+            <button type="submit" class="btn btn-primary">
+              {{ isEditing ? 'Actualizar' : 'Crear' }}
+            </button>
+            <button type="button" class="btn btn-secondary" (click)="cancel()">Cancelar</button>
+          </form>
+    </mat-card-content> 
+    </mat-card>
+</div>

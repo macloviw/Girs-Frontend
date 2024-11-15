@@ -1,0 +1,55 @@
+ <!-- Formulario de creación / edición -->
+ <button class="btn btn-primary"  mat-raised-button (click)="openDialog()">Crear Alcaldía</button>
+ <br/>
+ <br/>
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource" matSort>
+
+    <!-- ID Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+
+    <!-- Nombre Column -->
+    <ng-container matColumnDef="nombre">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </th>
+      <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
+    </ng-container>
+
+    <!-- Población Column -->
+    <ng-container matColumnDef="provincia">
+      <th mat-header-cell *matHeaderCellDef> Provincia </th>
+      <td mat-cell *matCellDef="let element"> {{element.provinciaNombre}} </td>
+    </ng-container>
+
+    <!-- Región Column -->
+    <ng-container matColumnDef="municipio">
+      <th mat-header-cell *matHeaderCellDef> Región </th>
+      <td mat-cell *matCellDef="let element"> {{element.municipioNombre}} </td>
+    </ng-container>
+
+    <!-- Región Column -->
+    <ng-container matColumnDef="distrito">
+      <th mat-header-cell *matHeaderCellDef> Distrito Municipal </th>
+      <td mat-cell *matCellDef="let element"> {{element.distritoMunicipalNombre}} </td>
+    </ng-container>    
+
+    <!-- Acciones Column -->
+    <ng-container matColumnDef="acciones">
+      <th mat-header-cell *matHeaderCellDef> Acciones </th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-button (click)="openDialog(element)">Editar</button>
+        <button mat-button color="warn" (click)="deleteAlcaldia(element.id)">Eliminar</button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+ <!-- Paginación -->
+ <mat-paginator [length]="alcaldias.length" [pageSize]="10" [pageSizeOptions]="[10, 20, 30]" showFirstLastButtons></mat-paginator>
+
+
+</div>

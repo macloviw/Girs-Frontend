@@ -1,0 +1,41 @@
+.container{
+    width: 1140px;
+}
+
+.login-card {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card-body{
+    padding: 70px 80px 70px;
+  }
+
+  .btn {
+    color: #fff;
+    background-color: #04a9f5;
+    border-color: #04a9f5;
+    float: right;
+    padding: 5px 30px;
+    margin-right: 0px;    
+  }
+
+  .form-control {
+    border: 1px solid #d5dae2;
+    padding: 15px 25px;
+    min-height: 45px;
+    font-size: 13px;
+    font-weight: normal;
+  }  
+
+  .login-card-img {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+  .min-vh-100 {
+    min-height: 100vh;
+  }
+  
