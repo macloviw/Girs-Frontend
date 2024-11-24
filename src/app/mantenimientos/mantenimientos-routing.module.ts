@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AlcaldiasComponent } from './alcaldias/alcaldias.component';
+import { CentrosAcopioComponent } from './centrosacopio/centrosacopio.component';
+
 
 
 const routes: Routes = [
@@ -12,8 +14,8 @@ const routes: Routes = [
         component: AlcaldiasComponent
       },
       {
-        path: 'centros-acopio',
-        loadComponent: () => import('./auth-signup/auth-signup.component')
+        path: 'centrosacopio',
+        component: CentrosAcopioComponent
       },
       {
         path: 'disposicion-final',

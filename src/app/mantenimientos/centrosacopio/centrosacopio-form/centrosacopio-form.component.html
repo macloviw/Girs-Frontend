@@ -1,0 +1,167 @@
+<div mat-dialog-content>
+    <mat-card class="example-card" appearance="outlined">
+    <mat-card-header>
+        <mat-card-title>{{ selectedcentrosacopio.id > 0 ? 'Editar Centro' : 'Crear Centro' }}</mat-card-title>
+    </mat-card-header>   
+    <mat-card-content>
+        <form (ngSubmit)="createOrUpdatecentrosacopio()">
+          <div class="row">
+            <div class="col-12">
+              <div class="form-group">
+                <label for="nombre">Nombre:</label>
+                <input
+                  type="text"
+                  id="nombre"
+                  [(ngModel)]="selectedcentrosacopio.nombre"
+                  name="nombre"
+                  class="form-control"
+                  required
+                />
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-group">
+                <label for="coordenadasUtm">Coordenadas UTM:</label>
+                <input
+                  type="text"
+                  id="coordenadasUtm"
+                  [(ngModel)]="selectedcentrosacopio.coordenadasUtm"
+                  name="coordenadasUtm"
+                  class="form-control"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="Latitud">Latitud:</label>
+                <input
+                  type="text"
+                  id="Latitud"
+                  [(ngModel)]="selectedcentrosacopio.latitud"
+                  name="Latitud"
+                  class="form-control"
+                  required
+                />
+              </div>   
+              <div class="form-group">
+                <label for="CapacidadTon">Capacidad Toneladas:</label>
+                <input
+                  type="text"
+                  id="CapacidadTon"
+                  [(ngModel)]="selectedcentrosacopio.capacidadTon"
+                  name="CapacidadTon"
+                  class="form-control"
+                  required
+                />
+              </div>    
+              <div class="form-group">
+                <label for="Horario">Horario:</label>
+                <input
+                  type="text"
+                  id="Horario"
+                  [(ngModel)]="selectedcentrosacopio.horario"
+                  name="Horario"
+                  class="form-control"
+                  required
+                />
+              </div> 
+              <div class="form-group">
+                <label for="activo">Activo:</label>
+                <input
+                  type="checkbox"
+                  id="activo"
+                  [(ngModel)]="selectedcentrosacopio.activo"
+                  name="activo"
+                  class="form-check-input"
+                />
+              </div>                                         
+            </div>
+            <div class="col-6">
+              <div class="form-group">
+                <label for="ResiudosToneladaMes">Toneladas residuos por mes:</label>
+                <input
+                  type="text"
+                  id="ResiudosToneladaMes"
+                  [(ngModel)]="selectedcentrosacopio.residuosToneladaMes"
+                  name="ResiudosToneladaMes"
+                  class="form-control"
+                  required
+                />
+              </div>   
+              <div class="form-group">
+                <label for="Longitud">Longitud:</label>
+                <input
+                  type="text"
+                  id="Longitud"
+                  [(ngModel)]="selectedcentrosacopio.longitud"
+                  name="Longitud"
+                  class="form-control"
+                  required
+                />
+              </div>                
+              <div class="form-group">
+                <label for="ResiduosAcopia">Resiudos acopia:</label>
+                <input
+                  type="text"
+                  id="ResiduosAcopia"
+                  [(ngModel)]="selectedcentrosacopio.residuosAcopia"
+                  name="ResiduosAcopia"
+                  class="form-control"
+                  required
+                />
+              </div>  
+                                                                                 
+              <div class="form-group">
+                  <label for="provinciaCodigo">Provincia:</label>
+                  <mat-select
+                    id="provinciaCodigo"
+                    [(ngModel)]="selectedcentrosacopio.provinciaCodigo"
+                    name="provinciaCodigo"
+                    (selectionChange)="loadMunicipios($event.value)"
+                    required
+                  >
+                    <mat-option *ngFor="let provincia of provincias" [value]="provincia.codigo">
+                      {{ provincia.nombre }}
+                    </mat-option>
+                  </mat-select>
+                </div>
+        
+                <div class="form-group">
+                  <label for="municipioCodigo">Municipio:</label>
+                  <mat-select
+                    id="municipioCodigo"
+                    [(ngModel)]="selectedcentrosacopio.municipioCodigo"
+                    name="municipioCodigo"
+                    (selectionChange)="loadDistritos($event.value)"
+                    required
+                  >
+                    <mat-option *ngFor="let municipio of municipios" [value]="municipio.codigo">
+                      {{ municipio.nombre }}
+                    </mat-option>
+                  </mat-select>
+                </div>
+        
+                <div class="form-group">
+                  <label for="distritoMunicipalCodigo">Distrito Municipal:</label>
+                  <mat-select
+                    id="distritoMunicipalCodigo"
+                    [(ngModel)]="selectedcentrosacopio.distritoMunicipalCodigo"
+                    name="distritoMunicipalCodigo"
+                    required
+                  >
+                    <mat-option *ngFor="let distrito of distritos" [value]="distrito.codigo">
+                      {{ distrito.nombre }}
+                    </mat-option>
+                  </mat-select>
+                </div>
+            </div>
+          </div>
+
+        
+            <button type="submit" class="btn btn-primary">
+              {{ isEditing ? 'Actualizar' : 'Crear' }}
+            </button>
+            <button type="button" class="btn btn-secondary" (click)="cancel()">Cancelar</button>
+          </form>
+    </mat-card-content> 
+    </mat-card>
+</div>

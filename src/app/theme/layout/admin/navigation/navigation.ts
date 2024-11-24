@@ -68,10 +68,10 @@ const NavigationItems = [
         "icon": "feather icon-home"
       },
       {
-        "id": "centros-acopio",
+        "id": "centrosacopio",
         "title": "Centros Acopio",
         "type": "item",
-        "url": "/mantenimientos/centros-acopio",
+        "url": "/mantenimientos/centrosacopio",
         "icon": "feather icon-box"
       },
       {

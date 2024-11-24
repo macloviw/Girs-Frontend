@@ -12,13 +12,17 @@ import { FormsModule } from '@angular/forms'; // Asegúrate de importar FormsMod
 import { ReactiveFormsModule } from '@angular/forms';
 import { AlcaldiasComponent } from './alcaldias/alcaldias.component';
 import { AlcaldiaFormComponent } from './alcaldias/alcaldia-form/alcaldia-form.component';
+import { CentrosAcopioComponent } from './centrosacopio/centrosacopio.component';
+import { centrosacopioFormComponent } from './centrosacopio/centrosacopio-form/centroacopio-form.component';
+import {MatButtonModule} from '@angular/material/button';
+
 
 
 
 
 
 @NgModule({
-  declarations: [AlcaldiasComponent, AlcaldiaFormComponent],
-  imports: [CommonModule, FormsModule, ReactiveFormsModule, MantenimientosRoutingModule, MatTableModule, MatPaginatorModule, MatCardModule,  MatSortModule, MatSelectModule, MatOptionModule]
+  declarations: [AlcaldiasComponent, AlcaldiaFormComponent, CentrosAcopioComponent, centrosacopioFormComponent],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, MantenimientosRoutingModule, MatTableModule, MatPaginatorModule, MatCardModule,  MatSortModule, MatSelectModule, MatOptionModule, MatButtonModule]
 })
 export class MantenimientosModule {}
